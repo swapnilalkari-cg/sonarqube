@@ -1,0 +1,15 @@
+import time
+
+while True:
+    # Get the current time
+    current_time = time.strftime("%H:%M:%S", time.localtime())
+
+    # Clear the console (for Unix/Linux/macOS)
+    print("\033c", end="")
+
+    # Print the current time
+    print(current_time)
+
+    # Wait for one second before updating the time
+    time.sleep(1)
+
