@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Merge Branch') {
+            steps {
+                // Checkout the main branch
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/example/repo.git'
+                
+                // Merge the slave branch into the main branch
+                sh 'git merge slave_branch_name'
+                
+                // Push the changes to the remote repository
+                sh 'git push origin main'
+            }
+        }
+    }
+}
+
+verification 
